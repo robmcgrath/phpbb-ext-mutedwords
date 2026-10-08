@@ -1,0 +1,18 @@
+parameters:
+    robmcgrath.mutedwords.tables.muted_words: '%core.table_prefix%muted_words'
+
+services:
+    robmcgrath.mutedwords.manager:
+        class: robmcgrath\mutedwords\mutedwords\manager
+        shared: true
+        arguments:
+            - '@dbal.conn'
+            - '@user'
+            - '%robmcgrath.mutedwords.tables.muted_words%'
+
+    robmcgrath.mutedwords.listener:
+        class: robmcgrath\mutedwords\event\listener
+        arguments:
+            - '@robmcgrath.mutedwords.manager'
+        tags:
+            - { name: event.listener }

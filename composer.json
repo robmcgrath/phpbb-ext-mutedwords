@@ -1,0 +1,25 @@
+{
+	"name": "robmcgrath/mutedwords",
+	"type": "phpbb-extension",
+	"description": "Lets each user maintain a personal list of muted words and hides topics whose titles match any of them.",
+	"homepage": "https://github.com/robmcgrath/phpbb-ext-mutedwords",
+	"version": "1.0.0",
+	"keywords": ["phpbb", "extension", "mute", "filter", "topics"],
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Rob McGrath",
+			"homepage": "https://github.com/robmcgrath",
+			"role": "Lead Developer"
+		}
+	],
+	"require": {
+		"php": ">=7.2.0"
+	},
+	"extra": {
+		"display-name": "Muted Words",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.3.0,<4.0.0@dev"
+		}
+	}
+}

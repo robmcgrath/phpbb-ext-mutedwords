@@ -1,0 +1,55 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}">
+
+<h2>{L_TITLE}</h2>
+
+<div class="panel ucp-main ucp-mutedwords">
+	<div class="inner">
+
+	<p>{L_MUTED_WORDS_EXPLAIN}</p>
+
+	<fieldset>
+		<dl>
+			<dt><label for="mutedwords_word">{L_MUTED_WORD}{L_COLON}</label></dt>
+			<dd>
+				<input type="text" name="word" id="mutedwords_word" class="inputbox autowidth" size="40" maxlength="{MUTED_WORD_MAXLENGTH}" value="" />
+				<input type="submit" name="add" value="{L_ADD_MUTED_WORD}" class="button1" />
+			</dd>
+		</dl>
+	</fieldset>
+
+	<h3>{L_MUTED_WORDS}</h3>
+
+	<!-- IF .muted_words -->
+	<table class="table1 ucp-mutedwords-list">
+		<thead>
+			<tr>
+				<th class="name">{L_MUTED_WORD}</th>
+				<th class="mark">{L_DELETE_MUTED_WORD}</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!-- BEGIN muted_words -->
+			<tr class="<!-- IF muted_words.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+				<td>{muted_words.WORD}</td>
+				<td class="mark"><input type="submit" name="delete[{muted_words.WORD_ID}]" value="{L_DELETE_MUTED_WORD}" class="button2" /></td>
+			</tr>
+		<!-- END muted_words -->
+		</tbody>
+	</table>
+	<!-- ELSE -->
+	<p><strong>{L_NO_MUTED_WORDS}</strong></p>
+	<!-- ENDIF -->
+
+	</div>
+</div>
+
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+</fieldset>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->
